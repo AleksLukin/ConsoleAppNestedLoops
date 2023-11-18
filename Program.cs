@@ -85,21 +85,23 @@ namespace ConsoleAppNestedLoops
             string s = Console.ReadLine();
 
             int.TryParse(s, out int result);
+            
+            char plus = '+';
 
             if (result > 0)
             {
                 for (int i = 1; i <= result; i++)
                 {
+                    int count = 0;
                     for (int j = 1; j <= result; j++)
                     {
                         if (i % j == 0)
                         {
-                            Console.WriteLine($"{i}+");
-                            
+                            count ++;                            
+                        }
+                    }
 
-                            break;
-                        }                    
-                    }                    
+                    Console.WriteLine($"У числа {i} количество делителей равно {count}");
                 }
             }
             else
@@ -115,28 +117,28 @@ namespace ConsoleAppNestedLoops
         {
             Console.Write("Please, type any natural number: ");
             string s = Console.ReadLine();
-            
-            int count = 0;
+                        
             int.TryParse(s, out int result);
+
 
             if (result > 0)
             {
-                for (int j = 1; j < result; j++)
-                {
-                    if (result % j == 0)
+                for (int i = 1; i < result; i++)
+                {   
+                    int count = 0; 
+                    
+                    for (int j = 1; j <= result; j++)
                     {
-                        count += j;
-                    }
-                }                    
-                if (result == count)
-                {
-                    Console.WriteLine($"{result} - совершенное число!");
-                }
-                else
-                {
-                    Console.WriteLine($"{result} - несовершенное число!");
-                }
-                
+                        if (i % j == 0 & i!= j)
+                        {
+                            count += j; 
+                        }
+                    }                    
+                    if (i == count)
+                    {
+                        Console.WriteLine($"{i} - совершенное число!");
+                    } 
+                }    
             }
             else
             {
