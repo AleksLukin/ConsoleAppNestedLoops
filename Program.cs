@@ -13,7 +13,7 @@ namespace ConsoleAppNestedLoops
         {
             Console.Write("Please, type a number of a task from 1 to 14: ");
             string s = Console.ReadLine();
-            bool result = int.TryParse(s, out int number);
+            _=int.TryParse(s, out int number);
 
             try
             {
@@ -29,6 +29,10 @@ namespace ConsoleAppNestedLoops
                 {
                     ThreeTaskApp();
                 }
+                else if (number == 4)
+                {
+                    FourAppTask();
+                }
                 else 
                 {
                     Console.WriteLine("The number of the task is not corrected. Let`s one more time");
@@ -42,7 +46,7 @@ namespace ConsoleAppNestedLoops
                 Console.WriteLine($"Processing failed: {ex.Message}");
                 Console.WriteLine();
             }
-            Console.ReadLine();
+            Console.ReadKey();
         }
         /// <summary>
         /// Исходное данное - натуральное число q, выражающее площадь. 
@@ -86,8 +90,6 @@ namespace ConsoleAppNestedLoops
 
             int.TryParse(s, out int result);
             
-            char plus = '+';
-
             if (result > 0)
             {
                 for (int i = 1; i <= result; i++)
@@ -120,7 +122,6 @@ namespace ConsoleAppNestedLoops
                         
             int.TryParse(s, out int result);
 
-
             if (result > 0)
             {
                 for (int i = 1; i < result; i++)
@@ -143,6 +144,37 @@ namespace ConsoleAppNestedLoops
             else
             {
                 Console.WriteLine($"The number didn`t type");
+            }
+        }
+
+        /// <summary>
+        /// Дано натуральное число  n. Можно его представить в виде суммы трёх квадратов натуральных чисел?
+        /// Если можно, то: a. Указать тройку x, y, z, таких натуральных чисел, что x2 + y2 + z2 = n;
+        ///                 b. Указать все тройки x, y, z таких натуральных чисел, что x2 + y2 + z2 = n.
+        /// </summary>
+        static void FourAppTask()
+        {
+            Console.Write("Введите натуральное число: ");
+            int result = int.Parse(Console.ReadLine());
+            int length = result + 1;
+            for (int i = 1; i <= length; i++)
+            {
+                for (int j = 1; j <= length; j++)
+                {
+                    for (int k = 1; k <= length; k++)
+                    {
+                        double number = Math.Pow(i, 2) + Math.Pow(j, 2) + Math.Pow(k, 2);
+
+                        if (result == number)
+                        {
+                            Console.WriteLine($"Число, равное сумме квадратов - {result}");
+                            Console.WriteLine($"Первое слагаемое - {i}");
+                            Console.WriteLine($"Второе слагаемое - {j}");
+                            Console.WriteLine($"Третье слагаемое - {k}");
+
+                        }
+                    }
+                }
             }
         }
     }
