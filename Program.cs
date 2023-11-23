@@ -33,6 +33,14 @@ namespace ConsoleAppNestedLoops
                 {
                     FourAppTask();
                 }
+                else if(number == 5)
+                {
+                    FiveAppTask();
+                }
+                else if (number == 6)
+                {
+                    SixAppTask();
+                }
                 else 
                 {
                     Console.WriteLine("The number of the task is not corrected. Let`s one more time");
@@ -146,7 +154,6 @@ namespace ConsoleAppNestedLoops
                 Console.WriteLine($"The number didn`t type");
             }
         }
-
         /// <summary>
         /// Дано натуральное число  n. Можно его представить в виде суммы трёх квадратов натуральных чисел?
         /// Если можно, то: a. Указать тройку x, y, z, таких натуральных чисел, что x2 + y2 + z2 = n;
@@ -174,6 +181,45 @@ namespace ConsoleAppNestedLoops
 
                         }
                     }
+                }
+            }
+        }
+        /// <summary>
+        /// Найти натуральное число от 1 до 10000 с максимальной суммой делителей.
+        /// </summary>
+        static void FiveAppTask()
+        {
+            for (int i = 1; i < 10000; i++)
+            {
+                int count = 1;
+                for (int j = 1; j < 10000; j++)
+                {
+                    if (i % j == 0)
+                    {
+                        count++;
+                    }
+                }                        
+                if (count >= 63)
+                {
+                    Console.WriteLine($"Число {i} имеет максимальное количество делителей - {count}");
+                }
+            }
+        }
+        /// <summary>
+        /// Даны натуральные числа a, b (a < b). Получить все простые числа p, удовлетворяющие неравенствам: a<=p<=b.
+        /// </summary>
+        static void SixAppTask()
+        {
+            Console.Write("Введите число а: ");
+            int a = int.Parse( Console.ReadLine() );
+            Console.Write("Введите число b. Оно должно быть больше предыдущего числа: ");
+            int b = int.Parse(Console.ReadLine());
+
+            if (a < b)
+            {
+                for (int p = a; a<=p & p<=b; p++)
+                {
+                    Console.WriteLine(p);
                 }
             }
         }
