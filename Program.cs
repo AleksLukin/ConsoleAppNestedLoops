@@ -41,6 +41,10 @@ namespace ConsoleAppNestedLoops
                 {
                     SixAppTask();
                 }
+                else if (number == 7)
+                {
+                    SevenAppTask();
+                }
                 else 
                 {
                     Console.WriteLine("The number of the task is not corrected. Let`s one more time");
@@ -220,6 +224,29 @@ namespace ConsoleAppNestedLoops
                 for (int p = a; a<=p & p<=b; p++)
                 {
                     Console.WriteLine(p);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Даны натуральные числа n, m. Получить все меньшие n натуральные числа, квадрат суммы цифр которых равен m.
+        /// </summary>
+        static void SevenAppTask()
+        {
+            Console.Write("Введите число n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("Введите число m: ");
+            int m = int.Parse(Console.ReadLine());
+            
+
+            for (int i = 1; i < n; i++)
+            {
+                for(int j = 1;j < n; j++)
+                {
+                    if (Math.Pow(j += i, 2) == m)
+                    {
+                        Console.WriteLine($"Ответ: {j}");                        
+                    }
                 }
             }
         }
