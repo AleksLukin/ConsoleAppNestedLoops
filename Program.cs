@@ -45,6 +45,18 @@ namespace ConsoleAppNestedLoops
                 {
                     SevenAppTask();
                 }
+                else if (number == 8)
+                {
+                    EightAppTask();
+                }
+                else if (number == 9)
+                {
+                    NineAppTask();
+                }
+                else if (number == 10)
+                {
+                    TenAppTask();
+                }
                 else 
                 {
                     Console.WriteLine("The number of the task is not corrected. Let`s one more time");
@@ -227,7 +239,6 @@ namespace ConsoleAppNestedLoops
                 }
             }
         }
-
         /// <summary>
         /// Даны натуральные числа n, m. Получить все меньшие n натуральные числа, квадрат суммы цифр которых равен m.
         /// </summary>
@@ -249,6 +260,135 @@ namespace ConsoleAppNestedLoops
                     }
                 }
             }
+        }
+        /// <summary>
+        /// Даны натуральные числа n и m. Найти все пары дружественных* чисел, лежащих в диапазоне от n до m. К примеру - 220 и 284.
+        /// ---------------------------------------------------------------------------------------------------------------
+        /// *Два числа называются дружественными, если каждое из них равно сумме всех делителей другого (само число в качестве делителя не рассматривается). 
+        /// </summary>
+        static void EightAppTask()
+        {
+            Console.Write("Введите число n: ");
+            int n = int.Parse(Console.ReadLine());
+            Console.Write("Введите число m: ");
+            int m = int.Parse(Console.ReadLine());
+
+            for (int i = n; i < m; i++)
+            {
+                for (int j = n; j < m; j++)
+                {
+                    if (i % j == 0 & j % i == 0)
+                    {
+                        int k = i + i;
+                        int l = j + j;
+
+                        if (k == l)
+                        {
+                            Console.WriteLine(k+" и "+l);
+                        }
+                        
+                    }
+                }
+            }     
+        }
+        /// <summary>
+        /// В данном натуральном числе переставить цифры таким образом, чтобы образовалось наименьшее число, записанное этими же цифрами.
+        /// </summary>
+        static void NineAppTask()
+        {
+            Console.Write("Введите число больше 10 но меньше 1000: ");
+            int number = int.Parse(Console.ReadLine());
+
+            if (number > 10 & number < 100)
+            {
+                int numberOne = number % 10;
+                int numberTwo = number / 10;
+                numberTwo %= 10;
+
+                if (numberTwo>numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberOne}{numberTwo}");
+                }
+                else
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberTwo}{numberOne}");
+                }
+            }                
+            if (number > 100 & number < 1000)
+            {
+                int numberOne = number / 100;
+                int numberTwo = number / 10;
+                numberTwo %= 10;
+                int numberThree = number % 10;
+
+                if (numberTwo > numberOne & numberTwo > numberThree & numberThree>numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberOne}{numberTwo}{numberThree}");
+                }
+                if (numberTwo > numberOne & numberTwo > numberThree & numberThree < numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberThree}{numberOne}{numberTwo}");
+                }
+                if (numberThree > numberOne & numberThree > numberTwo & numberTwo < numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberTwo}{numberOne}{numberThree}");
+                }
+                if (numberThree < numberOne & numberThree < numberTwo & numberTwo > numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberThree}{numberOne}{numberTwo}");
+                }
+                if (numberThree < numberOne & numberThree < numberTwo & numberTwo < numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberThree}{numberTwo}{numberOne}");
+                }
+                if (numberTwo < numberOne & numberTwo < numberThree & numberThree < numberOne)
+                {
+                    Console.WriteLine($"Наименьшее число равно: {numberTwo}{numberThree}{numberOne}");
+                }
+            }
+            if (number >= 1000)
+            {
+                Console.WriteLine($"Число {number} больше 1000");
+            }
+            else if (number < 10)
+            {
+                Console.WriteLine("Введено число меньше 10");
+            }
+
+        }
+        /// <summary>
+        /// Составить программу, печатающую для данного натурального числа k-ю цифру последовательности: 
+        /// a. 12345678910..., в которой выписаны подряд все натуральные числа; 
+        /// b. 14916253649..., в которой выписаны подряд квадраты всех натуральных чисел;
+        /// c. 1123581321..., в которой выписаны подряд все числа Фибоначчи.
+        /// </summary>
+        static void TenAppTask()
+        {
+            Console.Write("Введите число: ");
+            int anyNumber = Convert.ToInt32 (Console.ReadLine());
+            Console.WriteLine($"Выписаны подряд все натуральные числа: ");
+            for (int i = 1; i <= anyNumber; i++)
+            {
+                Console.WriteLine(i);                                
+            }
+            Console.WriteLine($"Выписаны подряд все квадраты натуральных чисел: ");          
+            for (int k = 1; k <= anyNumber ;k ++)
+            {
+                Console.WriteLine(Math.Pow(k, 2));                
+            }
+            Console.WriteLine($"Выписаны подряд все числа Фибоначчи начиная с 2: ");
+            int fibonacchi = 0;
+            int prevNumber = 0;
+            int nextNumber = 1;
+
+            for (int j = 1; j < anyNumber; j++)
+            {
+                fibonacchi = prevNumber + nextNumber;
+                prevNumber = nextNumber;
+                nextNumber = fibonacchi; 
+                Console.WriteLine(fibonacchi);           
+            }
+            
         }
     }
 }
