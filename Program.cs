@@ -369,25 +369,26 @@ namespace ConsoleAppNestedLoops
             Console.WriteLine($"Выписаны подряд все натуральные числа: ");
             for (int i = 1; i <= anyNumber; i++)
             {
-                Console.WriteLine(i);                                
+                Console.Write(i);                                
             }
+            Console.WriteLine();
             Console.WriteLine($"Выписаны подряд все квадраты натуральных чисел: ");          
             for (int k = 1; k <= anyNumber ;k ++)
             {
-                Console.WriteLine(Math.Pow(k, 2));                
+                Console.Write(Math.Pow(k, 2));                
             }
+            Console.WriteLine();
             Console.WriteLine($"Выписаны подряд все числа Фибоначчи начиная с 2: ");
-            int fibonacchi = 0;
             int prevNumber = 0;
             int nextNumber = 1;
 
             for (int j = 1; j < anyNumber; j++)
             {
-                fibonacchi = prevNumber + nextNumber;
+                int fibonacchi = prevNumber + nextNumber;
                 prevNumber = nextNumber;
                 nextNumber = fibonacchi; 
-                Console.WriteLine(fibonacchi);           
-            }
+                Console.Write(fibonacchi);                         
+            }  
             
         }
     }
