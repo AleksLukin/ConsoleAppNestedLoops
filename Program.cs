@@ -57,6 +57,10 @@ namespace ConsoleAppNestedLoops
                 {
                     TenAppTask();
                 }
+                else if (number == 11)
+                {
+                    ElevenTaskApp();
+                }
                 else 
                 {
                     Console.WriteLine("The number of the task is not corrected. Let`s one more time");
@@ -390,6 +394,25 @@ namespace ConsoleAppNestedLoops
                 Console.Write(fibonacchi);                         
             }  
             
+        }
+        /// <summary>
+        /// Составить программу возведения заданного числа в третью степень, используя следующую закономерность: 
+        //1^3 = 1     //2^3 = 3 + 5       //3^3 = 7 + 9 + 11 
+        //4^3 = 13 + 15 + 17 + 19        //5^3 = 21 + 23 + 25 + 27 + 29
+        /// </summary>
+        static void ElevenTaskApp()
+        {
+            Console.Write("Введите число для возведения в куб: ");
+            int.TryParse(Console.ReadLine(), out int number); //ввод исходного числа
+            int count = number * (number - 1) + 1;   //первое число в последовательности
+            int result = 0;                         //переменная для накопления суммы
+
+            for (int i = 0; i < number; i++)
+            {                                
+                result += count;
+                count += 2;
+            }
+            Console.WriteLine(result);
         }
     }
 }
